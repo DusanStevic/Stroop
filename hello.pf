@@ -1,0 +1,21 @@
+test Hello {
+
+    | index      | greeting                  |
+    | ---------- | ------------------------- |
+    | 1..10 loop | "Hello Person {{index}}!" |
+    
+    exec-> text(content greeting) for 200
+    
+}
+
+
+screen intro {
+    Welcome !
+    
+    Thanks for running this little home world example.
+}
+
+flow {
+    show intro
+    execute Hello
+}
