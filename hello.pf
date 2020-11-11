@@ -12,7 +12,7 @@ test Hello {
 screen intro {
     Welcome !
     
-    Thanks for running this little home world example.
+    Thanks for running this little hello world example.
 }
 
 flow {

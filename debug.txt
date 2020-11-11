@@ -1,0 +1,303 @@
+*** PARSING MODEL ***
+>> Matching rule Model=Sequence at position 0 => *test Hello
+   >> Matching rule PyFliesModel=Sequence in Model at position 0 => *test Hello
+      >> Matching rule Optional in PyFliesModel at position 0 => *test Hello
+         >> Matching rule __asgn_plain=Sequence[description] in PyFliesModel at position 0 => *test Hello
+            >> Matching rule Description=Sequence in __asgn_plain at position 0 => *test Hello
+               ?? Try match rule StrMatch(""") in Description at position 0 => *test Hello
+               >> Matching rule Comment=OrderedChoice in Description at position 0 => *test Hello
+                  ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 0 => *test Hello
+                  -- NoMatch at 0
+                  ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 0 => *test Hello
+                  -- NoMatch at 0
+               <<- Not matched rule Comment=OrderedChoice in Comment at position 0 => *test Hello
+               -- No match '"""' at 0 => '*tes*t Hello'
+            <<- Not matched rule Description=Sequence in Description at position 0 => *test Hello
+         <<- Not matched rule __asgn_plain=Sequence[description] in __asgn_plain at position 0 => *test Hello
+      <<- Not matched rule Optional in PyFliesModel at position 0 => *test Hello
+      >> Matching rule __asgn_zeroormore=ZeroOrMore[vars] in PyFliesModel at position 0 => *test Hello
+         >> Matching rule VariableAssignment=Sequence in __asgn_zeroormore at position 0 => *test Hello
+            >> Matching rule __asgn_plain=Sequence[name] in VariableAssignment at position 0 => *test Hello
+               ?? Try match rule ID=RegExMatch([^\d\W]\w*\b) in __asgn_plain at position 0 => *test Hello
+               ++ Match 'test' at 0 => '*test* Hello'
+            <<+ Matched rule __asgn_plain=Sequence[name] in __asgn_plain at position 4 => test* Hello { 
+            ?? Try match rule StrMatch(=) in VariableAssignment at position 5 => test *Hello { 
+            >> Matching rule Comment=OrderedChoice in VariableAssignment at position 5 => test *Hello { 
+               ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 5 => test *Hello { 
+               -- NoMatch at 5
+               ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 5 => test *Hello { 
+               -- NoMatch at 5
+            <<- Not matched rule Comment=OrderedChoice in Comment at position 5 => test *Hello { 
+            -- No match '=' at 5 => 'test *H*ello { '
+         <<- Not matched rule VariableAssignment=Sequence in VariableAssignment at position 0 => *test Hello
+      <<- Not matched rule __asgn_zeroormore=ZeroOrMore[vars] in __asgn_zeroormore at position 0 => *test Hello
+      >> Matching rule __asgn_oneormore=OneOrMore[routine_types] in PyFliesModel at position 0 => *test Hello
+         >> Matching rule RoutineType=OrderedChoice in __asgn_oneormore at position 0 => *test Hello
+            >> Matching rule TestType=Sequence in RoutineType at position 0 => *test Hello
+               ?? Try match rule StrMatch(test) in TestType at position 0 => *test Hello
+               ++ Match 'test' at 0 => '*test* Hello'
+               >> Matching rule __asgn_plain=Sequence[name] in TestType at position 4 => test* Hello { 
+                  ?? Try match rule ID=RegExMatch([^\d\W]\w*\b) in __asgn_plain at position 5 => test *Hello { 
+                  ++ Match 'Hello' at 5 => 'test *Hello* { '
+               <<+ Matched rule __asgn_plain=Sequence[name] in __asgn_plain at position 10 => test Hello* {      
+               ?? Try match rule StrMatch({) in TestType at position 11 => est Hello *{      |
+               >> Matching rule Comment=OrderedChoice in TestType at position 11 => est Hello *{      |
+                  ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 11 => est Hello *{      |
+                  -- NoMatch at 11
+                  ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 11 => est Hello *{      |
+                  -- NoMatch at 11
+               <<- Not matched rule Comment=OrderedChoice in Comment at position 11 => est Hello *{      |
+               ++ Match '{' at 11 => 'est Hello *{*      |'
+               >> Matching rule __asgn_plain=Sequence[table_spec] in TestType at position 12 => st Hello {*      | 
+                  >> Matching rule ConditionsTable=Sequence in __asgn_plain at position 12 => st Hello {*      | 
+                     >> Matching rule ZeroOrMore in ConditionsTable at position 12 => st Hello {*      | 
+                        >> Matching rule Sequence in ConditionsTable at position 12 => st Hello {*      | 
+                           ?? Try match rule RegExMatch(\s*) in ConditionsTable at position 12 => st Hello {*      | 
+                           >> Matching rule Comment=OrderedChoice in ConditionsTable at position 12 => st Hello {*      | 
+                              ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 12 => st Hello {*      | 
+                              -- NoMatch at 12
+                              ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 12 => st Hello {*      | 
+                              -- NoMatch at 12
+                           <<- Not matched rule Comment=OrderedChoice in Comment at position 12 => st Hello {*      | 
+                           ++ Match '
+
+    ' at 12 => 'st Hello {*      *| '
+                           >> Matching rule Optional in ConditionsTable at position 20 =>  {      *| index   
+                              >> Matching rule Comment=OrderedChoice in ConditionsTable at position 20 =>  {      *| index   
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                                 >> Matching rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                    ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                    ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                 <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                 -- NoMatch at 20
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                                 >> Matching rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                    ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                    ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                 <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                 -- NoMatch at 20
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                           <<- Not matched rule Optional in ConditionsTable at position 20 =>  {      *| index   
+                           ?? Try match rule RegExMatch(\s*) in ConditionsTable at position 20 =>  {      *| index   
+                           >> Matching rule Comment=OrderedChoice in ConditionsTable at position 20 =>  {      *| index   
+                              ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                              -- NoMatch at 20
+                              ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                              -- NoMatch at 20
+                           <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                           ++ Match '' at 20 => ' {      *| index   '
+                        <<+ Matched rule Sequence in ConditionsTable at position 20 =>  {      *| index   
+                        >> Matching rule Sequence in ConditionsTable at position 20 =>  {      *| index   
+                           ?? Try match rule RegExMatch(\s*) in ConditionsTable at position 20 =>  {      *| index   
+                           >> Matching rule Comment=OrderedChoice in ConditionsTable at position 20 =>  {      *| index   
+                              ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                              -- NoMatch at 20
+                              ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                              -- NoMatch at 20
+                           <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                           ++ Match '' at 20 => ' {      *| index   '
+                           >> Matching rule Optional in ConditionsTable at position 20 =>  {      *| index   
+                              >> Matching rule Comment=OrderedChoice in ConditionsTable at position 20 =>  {      *| index   
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                                 >> Matching rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                    ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                    ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                 <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                 -- NoMatch at 20
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                                 >> Matching rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                    ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                    ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                                    -- NoMatch at 20
+                                 <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                                 -- NoMatch at 20
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                           <<- Not matched rule Optional in ConditionsTable at position 20 =>  {      *| index   
+                           ?? Try match rule RegExMatch(\s*) in ConditionsTable at position 20 =>  {      *| index   
+                           >> Matching rule Comment=OrderedChoice in ConditionsTable at position 20 =>  {      *| index   
+                              ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                              -- NoMatch at 20
+                              ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                              -- NoMatch at 20
+                           <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                           ++ Match '' at 20 => ' {      *| index   '
+                        <<- Not matched rule Sequence in ConditionsTable at position 20 =>  {      *| index   
+                     <<+ Matched rule ZeroOrMore in ConditionsTable at position 20 =>  {      *| index   
+                     ?? Try match rule StrMatch(|) in ConditionsTable at position 20 =>  {      *| index   
+                     >> Matching rule Comment=OrderedChoice in ConditionsTable at position 20 =>  {      *| index   
+                        ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 20 =>  {      *| index   
+                        -- NoMatch at 20
+                        ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 20 =>  {      *| index   
+                        -- NoMatch at 20
+                     <<- Not matched rule Comment=OrderedChoice in Comment at position 20 =>  {      *| index   
+                     ++ Match '|' at 20 => ' {      *|* index   '
+                     >> Matching rule __asgn_oneormore=OneOrMore[variables] in ConditionsTable at position 21 => {      |* index    
+                        >> Matching rule TableVarName=Sequence in __asgn_oneormore at position 21 => {      |* index    
+                           >> Matching rule Sequence in TableVarName at position 21 => {      |* index    
+                              ?? Try match rule WSNoNL=RegExMatch([ \t]*) in WSNoNL at position 21 => {      |* index    
+                              >> Matching rule Comment=OrderedChoice in WSNoNL at position 21 => {      |* index    
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 21 => {      |* index    
+                                 -- NoMatch at 21
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 21 => {      |* index    
+                                 -- NoMatch at 21
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 21 => {      |* index    
+                              ++ Match ' ' at 21 => '{      |* *index    '
+                           <<+ Matched rule Sequence in WSNoNL at position 22 =>       | *index     
+                           >> Matching rule WORD=OrderedChoice in TableVarName at position 22 =>       | *index     
+                              ?? Try match rule INT=RegExMatch([-+]?[0-9]+\b) in WORD at position 22 =>       | *index     
+                              >> Matching rule Comment=OrderedChoice in WORD at position 22 =>       | *index     
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 22 =>       | *index     
+                                 -- NoMatch at 22
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 22 =>       | *index     
+                                 -- NoMatch at 22
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 22 =>       | *index     
+                              -- NoMatch at 22
+                              ?? Try match rule RegExMatch([-\w]*\b) in WORD at position 22 =>       | *index     
+                              >> Matching rule Comment=OrderedChoice in WORD at position 22 =>       | *index     
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 22 =>       | *index     
+                                 -- NoMatch at 22
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 22 =>       | *index     
+                                 -- NoMatch at 22
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 22 =>       | *index     
+                              ++ Match 'index' at 22 => '      | *index*     '
+                           <<+ Matched rule WORD=OrderedChoice in WORD at position 27 =>    | index*      | gr
+                           >> Matching rule Sequence in TableVarName at position 27 =>    | index*      | gr
+                              ?? Try match rule WSNoNL=RegExMatch([ \t]*) in WSNoNL at position 27 =>    | index*      | gr
+                              >> Matching rule Comment=OrderedChoice in WSNoNL at position 27 =>    | index*      | gr
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 27 =>    | index*      | gr
+                                 -- NoMatch at 27
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 27 =>    | index*      | gr
+                                 -- NoMatch at 27
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 27 =>    | index*      | gr
+                              ++ Match '      ' at 27 => '   | index*      *| gr'
+                           <<+ Matched rule Sequence in WSNoNL at position 33 => ndex      *| greeting
+                        <<+ Matched rule TableVarName=Sequence in TableVarName at position 33 => ndex      *| greeting
+                        ?? Try match rule StrMatch(|) in __asgn_oneormore at position 33 => ndex      *| greeting
+                        >> Matching rule Comment=OrderedChoice in __asgn_oneormore at position 33 => ndex      *| greeting
+                           ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 33 => ndex      *| greeting
+                           -- NoMatch at 33
+                           ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 33 => ndex      *| greeting
+                           -- NoMatch at 33
+                        <<- Not matched rule Comment=OrderedChoice in Comment at position 33 => ndex      *| greeting
+                        ++ Match '|' at 33 => 'ndex      *|* greeting'
+                        >> Matching rule TableVarName=Sequence in __asgn_oneormore at position 34 => dex      |* greeting 
+                           >> Matching rule Sequence in TableVarName at position 34 => dex      |* greeting 
+                              ?? Try match rule WSNoNL=RegExMatch([ \t]*) in WSNoNL at position 34 => dex      |* greeting 
+                              >> Matching rule Comment=OrderedChoice in WSNoNL at position 34 => dex      |* greeting 
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 34 => dex      |* greeting 
+                                 -- NoMatch at 34
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 34 => dex      |* greeting 
+                                 -- NoMatch at 34
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 34 => dex      |* greeting 
+                              ++ Match ' ' at 34 => 'dex      |* *greeting '
+                           <<+ Matched rule Sequence in WSNoNL at position 35 => ex      | *greeting  
+                           >> Matching rule WORD=OrderedChoice in TableVarName at position 35 => ex      | *greeting  
+                              ?? Try match rule INT=RegExMatch([-+]?[0-9]+\b) in WORD at position 35 => ex      | *greeting  
+                              >> Matching rule Comment=OrderedChoice in WORD at position 35 => ex      | *greeting  
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 35 => ex      | *greeting  
+                                 -- NoMatch at 35
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 35 => ex      | *greeting  
+                                 -- NoMatch at 35
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 35 => ex      | *greeting  
+                              -- NoMatch at 35
+                              ?? Try match rule RegExMatch([-\w]*\b) in WORD at position 35 => ex      | *greeting  
+                              >> Matching rule Comment=OrderedChoice in WORD at position 35 => ex      | *greeting  
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 35 => ex      | *greeting  
+                                 -- NoMatch at 35
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 35 => ex      | *greeting  
+                                 -- NoMatch at 35
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 35 => ex      | *greeting  
+                              ++ Match 'greeting' at 35 => 'ex      | *greeting*  '
+                           <<+ Matched rule WORD=OrderedChoice in WORD at position 43 => | greeting*          
+                           >> Matching rule Sequence in TableVarName at position 43 => | greeting*          
+                              ?? Try match rule WSNoNL=RegExMatch([ \t]*) in WSNoNL at position 43 => | greeting*          
+                              >> Matching rule Comment=OrderedChoice in WSNoNL at position 43 => | greeting*          
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 43 => | greeting*          
+                                 -- NoMatch at 43
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 43 => | greeting*          
+                                 -- NoMatch at 43
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 43 => | greeting*          
+                              ++ Match '                  ' at 43 => '| greeting*                  *'
+                           <<+ Matched rule Sequence in WSNoNL at position 61 =>           *|     | -
+                        <<+ Matched rule TableVarName=Sequence in TableVarName at position 61 =>           *|     | -
+                        ?? Try match rule StrMatch(|) in __asgn_oneormore at position 61 =>           *|     | -
+                        >> Matching rule Comment=OrderedChoice in __asgn_oneormore at position 61 =>           *|     | -
+                           ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 61 =>           *|     | -
+                           -- NoMatch at 61
+                           ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 61 =>           *|     | -
+                           -- NoMatch at 61
+                        <<- Not matched rule Comment=OrderedChoice in Comment at position 61 =>           *|     | -
+                        ++ Match '|' at 61 => '          *|*     | -'
+                        >> Matching rule TableVarName=Sequence in __asgn_oneormore at position 62 =>          |*     | --
+                           >> Matching rule Sequence in TableVarName at position 62 =>          |*     | --
+                              ?? Try match rule WSNoNL=RegExMatch([ \t]*) in WSNoNL at position 62 =>          |*     | --
+                              >> Matching rule Comment=OrderedChoice in WSNoNL at position 62 =>          |*     | --
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 62 =>          |*     | --
+                                 -- NoMatch at 62
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 62 =>          |*     | --
+                                 -- NoMatch at 62
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 62 =>          |*     | --
+                              ++ Match '' at 62 => '         |*     | --'
+                           <<- Not matched rule Sequence in WSNoNL at position 62 =>          |*     | --
+                           >> Matching rule WORD=OrderedChoice in TableVarName at position 62 =>          |*     | --
+                              ?? Try match rule INT=RegExMatch([-+]?[0-9]+\b) in WORD at position 62 =>          |*     | --
+                              >> Matching rule Comment=OrderedChoice in WORD at position 62 =>          |*     | --
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 62 =>          |*     | --
+                                 -- NoMatch at 62
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 62 =>          |*     | --
+                                 -- NoMatch at 62
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 62 =>          |*     | --
+                              -- NoMatch at 62
+                              ?? Try match rule RegExMatch([-\w]*\b) in WORD at position 62 =>          |*     | --
+                              >> Matching rule Comment=OrderedChoice in WORD at position 62 =>          |*     | --
+                                 ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 62 =>          |*     | --
+                                 -- NoMatch at 62
+                                 ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 62 =>          |*     | --
+                                 -- NoMatch at 62
+                              <<- Not matched rule Comment=OrderedChoice in Comment at position 62 =>          |*     | --
+                              -- NoMatch at 62
+                           <<- Not matched rule WORD=OrderedChoice in WORD at position 62 =>          |*     | --
+                        <<- Not matched rule TableVarName=Sequence in TableVarName at position 62 =>          |*     | --
+                     <<+ Matched rule __asgn_oneormore=OneOrMore[variables] in __asgn_oneormore at position 61 =>           *|     | -
+                     ?? Try match rule WSNoNL=RegExMatch([ \t]*) in ConditionsTable at position 61 =>           *|     | -
+                     >> Matching rule Comment=OrderedChoice in ConditionsTable at position 61 =>           *|     | -
+                        ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 61 =>           *|     | -
+                        -- NoMatch at 61
+                        ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 61 =>           *|     | -
+                        -- NoMatch at 61
+                     <<- Not matched rule Comment=OrderedChoice in Comment at position 61 =>           *|     | -
+                     ++ Match '' at 61 => '          *|     | -'
+                     ?? Try match rule StrMatch(|) in ConditionsTable at position 61 =>           *|     | -
+                     >> Matching rule Comment=OrderedChoice in ConditionsTable at position 61 =>           *|     | -
+                        ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 61 =>           *|     | -
+                        -- NoMatch at 61
+                        ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 61 =>           *|     | -
+                        -- NoMatch at 61
+                     <<- Not matched rule Comment=OrderedChoice in Comment at position 61 =>           *|     | -
+                     ++ Match '|' at 61 => '          *|*     | -'
+                     ?? Try match rule WSWithNL=RegExMatch([ \t]*\n) in ConditionsTable at position 62 =>          |*     | --
+                     >> Matching rule Comment=OrderedChoice in ConditionsTable at position 62 =>          |*     | --
+                        ?? Try match rule RegExMatch(\/\/.*$) in Comment at position 62 =>          |*     | --
+                        -- NoMatch at 62
+                        ?? Try match rule RegExMatch(\/\*(.|\n)*?\*\/) in Comment at position 62 =>          |*     | --
+                        -- NoMatch at 62
+                     <<- Not matched rule Comment=OrderedChoice in Comment at position 62 =>          |*     | --
+                     -- NoMatch at 62
+                  <<- Not matched rule ConditionsTable=Sequence in ConditionsTable at position 12 => st Hello {*      | 
+               <<- Not matched rule __asgn_plain=Sequence[table_spec] in __asgn_plain at position 12 => st Hello {*      | 
+            <<- Not matched rule TestType=Sequence in TestType at position 0 => *test Hello
+            >> Matching rule ScreenType=Sequence in RoutineType at position 0 => *test Hello
+               ?? Try match rule StrMatch(screen) in ScreenType at position 0 => *test Hello
+               -- No match 'screen' at 0 => '*test H*ello'
+            <<- Not matched rule ScreenType=Sequence in ScreenType at position 0 => *test Hello
+         <<- Not matched rule RoutineType=OrderedChoice in RoutineType at position 0 => *test Hello
+      <<- Not matched rule __asgn_oneormore=OneOrMore[routine_types] in __asgn_oneormore at position 0 => *test Hello
+   <<- Not matched rule PyFliesModel=Sequence in PyFliesModel at position 0 => *test Hello
+<<- Not matched rule Model=Sequence in Model at position 0 => *test Hello
