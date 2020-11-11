@@ -1,0 +1,14 @@
+venv\Scripts\activate.bat
+textx generate hello.pf --target log --overwrite
+textx generate hello.pf --target csv --overwrite
+textx generate hello.pf --target psychopy --overwrite
+
+https://www.psychopy.org/download.html
+https://www.dell.com/support/home/en-us/product-support/servicetag/0-SUxnMlZvcWlqdUxuL1F1dXJ1OHJZZz090/drivers
+https://github.com/psychopy/psychopy/issues/2876
+https://discourse.psychopy.org/t/opengl-drivers-error/3039/2
+https://www.dell.com/community/Laptops-General-Read-Only/Inspiron-3542-installing-Windows-7-64-bit/td-p/4677362
+https://www.dell.com/community/Laptops-General-Read-Only/Intel-HD-Graphics-Driver-for-Dell-Inspiron-3542/td-p/4654394
+https://www.dell.com/support/home/en-us/drivers/DriversDetails?driverId=P79WN&fileId=3475323607&osCode=WT64A&productCode=inspiron-15-3542-laptop&languageCode=EN&categoryId=CS
+https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=v8yp3
+

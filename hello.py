@@ -102,7 +102,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 1!'}}]},
        # Trial 2
       {'vars': {'index': 2,
@@ -112,7 +112,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 2!'}}]},
        # Trial 3
       {'vars': {'index': 3,
@@ -122,7 +122,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 3!'}}]},
        # Trial 4
       {'vars': {'index': 4,
@@ -132,7 +132,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 4!'}}]},
        # Trial 5
       {'vars': {'index': 5,
@@ -142,7 +142,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 5!'}}]},
        # Trial 6
       {'vars': {'index': 6,
@@ -152,7 +152,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 6!'}}]},
        # Trial 7
       {'vars': {'index': 7,
@@ -162,7 +162,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 7!'}}]},
        # Trial 8
       {'vars': {'index': 8,
@@ -172,7 +172,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 8!'}}]},
        # Trial 9
       {'vars': {'index': 9,
@@ -182,7 +182,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 9!'}}]},
        # Trial 10
       {'vars': {'index': 10,
@@ -192,7 +192,7 @@ Hello_2 = [
             {'inst': Hello_text,
                 'type': 'visual.text',
                 'at': 0.0,
-                'duration': 1.0,
+                'duration': 0.2,
                 'params': {'text': 'Hello Person 10!'}}]},
 ]
 
