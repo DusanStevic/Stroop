@@ -1,0 +1,9 @@
+test Stroop {
+
+    |     |     |
+    | --- | --- |
+    |     |     |
+
+    fix -> cross()
+    exec-> circle(radius 20)
+}
