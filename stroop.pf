@@ -1,9 +1,36 @@
+"""
+Napisi opis testa
+"""
+positions = [left, down, right, up]
+words = [red, green, blue, yellow]
+colors = [red, green, blue, yellow]
 test Stroop {
 
-    |     |     |
-    | --- | --- |
-    |     |     |
+    | word       | color       | congruency                                  | expected                        |
+    | ---------- | ----------- | ------------------------------------------- | ------------------------------- |
+    | words loop | colors loop | congruent if word == color else incongruent | left if color == red else right |
+                                                         
 
-    fix -> cross()
-    exec-> circle(radius 20)
+    fix -> cross() for 1000..3000 choose
+    exec -> text(content word, color color)
+            keyboard(valid positions, correct expected)
+
+    error -> circle(radius 100, fillColor red, color red) for 100
+    correct -> circle(radius 100, fillColor green, color green) for 100
+
+    // Sound playing in PsychoPy is messy in Linux at the moment
+    // correct -> sound(freq 500) for 300
+    // error -> sound(freq 1000) for 300
+}
+screen Intro {
+    Press LEFT for the RED color
+    Press DOWN for the GREEN color
+    Press RIGHT for the BLUE color
+    Press UP for the YELLOW color
+}
+
+flow {
+    show Intro
+    execute Stroop
+    
 }

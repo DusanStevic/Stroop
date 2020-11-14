@@ -1,0 +1,8 @@
+﻿word,color,congruency,expected,repeat_index,Stroop_text.text,Stroop_text.color,Stroop_keyboard.correct,Stroop_keyboard.name,Stroop_keyboard.rt,participant,session,date,expName,psychopyVersion,frameRate,
+red,red,congruent,left,1,red,red,True,left,0.8072728282713797,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,
+red,green,incongruent,right,1,red,green,True,right,0.5508987494977191,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,
+red,blue,incongruent,right,1,red,blue,False,up,1.6038185004726984,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,
+red,yellow,incongruent,right,1,red,yellow,False,down,1.7776536097226199,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,
+green,red,incongruent,left,1,green,red,False,down,0.3363737406907603,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,
+green,green,congruent,right,1,green,green,False,down,0.29540551945683546,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,
+green,blue,incongruent,right,1,green,blue,True,right,0.4241857281012926,,001,2020_Nov_14_1746,,2020.1.3,60.273683980073095,

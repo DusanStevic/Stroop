@@ -1,0 +1,17 @@
+word,color,congruency,expected
+red,red,congruent,left
+red,green,incongruent,right
+red,blue,incongruent,right
+red,yellow,incongruent,right
+green,red,incongruent,left
+green,green,congruent,right
+green,blue,incongruent,right
+green,yellow,incongruent,right
+blue,red,incongruent,left
+blue,green,incongruent,right
+blue,blue,congruent,right
+blue,yellow,incongruent,right
+yellow,red,incongruent,left
+yellow,green,incongruent,right
+yellow,blue,incongruent,right
+yellow,yellow,congruent,right
