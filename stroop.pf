@@ -1,5 +1,8 @@
 """
-Napisi opis testa
+Stroop effect
+--------------------
+See also:
+https://en.wikipedia.org/wiki/Stroop_effect
 """
 
 
@@ -9,6 +12,40 @@ test Stroop {
     | word        | color       | congruency                                  | expected |
     | ----------- | ----------- | ------------------------------------------- | -------- |
     | colors loop | colors loop | congruent if word == color else incongruent | color    |
+    
+    /*
+       Color mapping:
+       red color -> left keyboard
+       green color -> down keyboard
+       blue color -> right keyboard
+       yellow color -> up keyboard
+         
+     */
+    
+    /* Response is generated acording to color mapping. 
+       Since this is a relatively small condition table we could just spell it out like:
+
+      |   word   |  color  | congruency  | response |
+      |----------+---------+-------------+----------|
+      |   red    |  red    | congruent   | left     |
+      |   red    |  green  | incongruent | left     |
+      |   red    |  blue   | incongruent | left     |
+      |   red    |  yellow | incongruent | left     |
+      |   green  |  red    | incongruent | down     |
+      |   green  |  green  | congruent   | down     |
+      |   green  |  blue   | incongruent | down     |
+      |   green  |  yellow | incongruent | down     |
+      |   blue   |  red    | incongruent | right    |
+      |   blue   |  green  | incongruent | right    |
+      |   blue   |  blue   | congruent   | right    |
+      |   blue   |  yellow | incongruent | right    |
+      |   yellow |  red    | incongruent | up       |
+      |   yellow |  green  | incongruent | up       |
+      |   yellow |  blue   | incongruent | up       |
+      |   yellow |  yellow | congruent   | up       |
+          
+        instead of using expressions in table cells.
+      */
                                                          
 
     fix -> cross() for 1000..3000 choose
@@ -18,7 +55,7 @@ test Stroop {
     error -> circle(radius 100, fillColor red, color red) for 100
     correct -> circle(radius 100, fillColor green, color green) for 100
 
-    // Sound playing in PsychoPy is messy in Linux at the moment
+    // Sound playing in PsychoPy is messy in Windows at the moment
     // correct -> sound(freq 500) for 300
     // error -> sound(freq 1000) for 300
 }
@@ -36,6 +73,7 @@ flow {
 }
 
 target PsychoPy {
+    // Map colors to keyboard keys (actual color mapping)
     keyboard.red = left
     keyboard.green = down
     keyboard.blue = right
