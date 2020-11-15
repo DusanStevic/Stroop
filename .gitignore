@@ -128,4 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# data folder ja sam dodao izuzimanje da mi rezultati Stroop testova ne idu na git
+data/
+
 

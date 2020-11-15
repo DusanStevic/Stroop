@@ -1,5 +1,0 @@
-﻿word,color,repeat_index,Stroop_text.text,Stroop_keyboard.correct,Stroop_keyboard.name,Stroop_keyboard.rt,participant,session,date,expName,psychopyVersion,frameRate,
-red,red,1,left,False,right,5.609844375343528,,001,2020_Nov_14_1415,,2020.1.3,59.94495373488435,
-green,green,1,down,False,up,3.7166257032658905,,001,2020_Nov_14_1415,,2020.1.3,59.94495373488435,
-blue,blue,1,right,True,right,1.7152654892706778,,001,2020_Nov_14_1415,,2020.1.3,59.94495373488435,
-yellow,yellow,1,up,True,up,0.8864840128226206,,001,2020_Nov_14_1415,,2020.1.3,59.94495373488435,
