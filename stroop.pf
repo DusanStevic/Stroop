@@ -68,7 +68,7 @@ screen Intro {
 
 flow {
     show Intro
-    execute Stroop
+    execute Stroop(random true)
     
 }
 
