@@ -59,17 +59,36 @@ test Stroop {
     // correct -> sound(freq 500) for 300
     // error -> sound(freq 1000) for 300
 }
-screen Intro {
-    Press LEFT for the RED color
-    Press DOWN for the GREEN color
-    Press RIGHT for the BLUE color
-    Press UP for the YELLOW color
+screen Practice {
+    Stroop test
+    ----------
+    
+    You will be presented with a colored words.
+    Your task is to press:
+    - LEFT for the RED color.
+    - DOWN for the GREEN color.
+    - RIGHT for the BLUE color.
+    - UP for the YELLOW color.
+    
+    Press SPACE for the practice block.
 }
 
-flow {
-    show Intro
-    execute Stroop
+screen Real {
+    Stroop test
+    ----------
     
+    Now a REAL testing will be performed.
+    
+    Press SPACE for the real block.
+}
+
+
+flow {
+    show Practice
+    execute Stroop(practice true)
+
+    show Real
+    execute Stroop(random true)
 }
 
 target PsychoPy {
