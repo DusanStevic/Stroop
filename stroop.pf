@@ -85,9 +85,11 @@ screen Real {
 
 flow {
     show Practice
+    // Perform practice test serie
     execute Stroop(practice true)
 
     show Real
+    // Perform real test serie (collects data)
     execute Stroop(random true)
 }
 
